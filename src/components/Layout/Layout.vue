@@ -5,7 +5,9 @@
       <DkMobileSider v-else />
       <a-layout class="ly--c-r-ctn">
         <DKHeader />
-        <DKContent />
+        <div class="p20 container">
+          <DKContent class="p20"/>
+        </div>
       </a-layout>
     </a-layout>
   </div>
@@ -15,6 +17,7 @@
 import DKHeader from "./modules/DKHeader";
 import DKSider from "./modules/DKSider";
 import DKContent from "./modules/DKContent";
+import DKFooter from "./modules/DKFooter";
 import DkMobileSider from "./modules/DkMobileSider";
 import handlerSize from "./minxins/handlerSize";
 export default {
@@ -23,7 +26,8 @@ export default {
     DKHeader,
     DKSider,
     DKContent,
-    DkMobileSider
+    DkMobileSider,
+    DKFooter
   },
   mixins: [handlerSize],
   mounted() {},
@@ -39,6 +43,10 @@ export default {
   height: 100vh;
   .ly--c-r-ctn {
     min-height: 100vh;
+  }
+  .container {
+    height: calc(100vh - 64px);
+    overflow-y: auto;
   }
 }
 </style>

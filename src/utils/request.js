@@ -149,9 +149,12 @@ export default {
       ...defaultHeader
     };
     return new Promise(resolve => {
-      axios.get(baseUrl + url, params, headerConfig).then(res => {
-        const { data } = res;
-        resolve(data);
+      axios.get(baseUrl + url, {
+        params: {
+          ...params
+        }
+      }, headerConfig).then(res => {
+        resolve(res);
       });
     });
   },
